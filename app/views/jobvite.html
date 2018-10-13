@@ -1,0 +1,94 @@
+<!--/* 
+ * Developed By: Montaser Elsawy
+ * montaserelsawy@gmail.com
+ * JobVite Assignment  @ 21-04-2015
+ */-->
+
+<h2>{{ appSettings.title}}</h2>
+
+<br>
+<div class="items_cont">
+    <div class="panel_header">
+        <div class="item_icon">&nbsp;</div>
+        <div class="item_title">Changelist / Build</div>
+        <div class="item_owner">Owner</div>
+        <div class="item_time_started">Time Started</div>
+        <div class="item_state">State</div>
+        <div class="item_metrics">Metrics</div>
+        <div class="item_build">Build</div>
+        <div class="item_unit_test">Unit Test</div>
+        <div class="item_functional_test">Functional Test</div>
+    </div>
+    <accordion>
+        <accordion-group ng-repeat="jv in jobviteData" class="{{ getcssClass(jv.state)}}" is-disabled="jv.state=='Pending' ? true : false"  ng-open="jv.id=='4' ? true : false;" is-open="$last">
+            <accordion-heading> 
+                <div class="panel_head" ng-click="jv.state != 'Pending' ? toggleDetail($index) : false;" >
+                    <div class="{{ getIconClass(jv.type)}} item_icon"></div>
+                    <div class="item_title">{{jv.label}}</div>
+                    <div class="item_owner">{{jv.owner}}</div>
+                    <div class="item_time_started">{{jv.time_started}}</div>
+                    <div class="item_state">{{jv.state}}</div>
+                    <div class="item_metrics" ng-hide="activePosition == $index" ><div class="bar_cont"><div class="pb_dim {{ getProgressbarcssClass(jv.metrics[0].state)}}" style="width:{{jv.metrics[0].percentage}}%"></div></div></div>
+                    <div class="item_build" ng-hide="activePosition == $index"><div class="bar_cont"><div class="pb_dim {{ getProgressbarcssClass(jv.build[0].state)}}" style="width:{{jv.build[0].percentage}}%"></div></div></div>
+                    <div class="item_unit_test" ng-hide="activePosition == $index"><div class="bar_cont"><div class="pb_dim {{ getProgressbarcssClass(jv.unit_test[0].state)}}" style="width:{{jv.unit_test[0].percentage}}%"></div></div></div>
+                    <div class="item_functional_test" ng-hide="activePosition == $index"><div class="bar_cont"><div class="pb_dim {{ getProgressbarcssClass(jv.functional_test[0].state)}}" style="width:{{jv.functional_test[0].percentage}}%"></div></div></div>
+                </div>
+            </accordion-heading>
+            <div class="details">
+                <div class="item_box item_metrics_box {{ getcssClass(jv.metrics[0].state)}}" onclick="open_details();">
+                    <div class="item_label_box">Metrics</div>
+                    <div class="arrows">
+                        <div class="arrow_box pc_icon_arrow_{{jv.metrics[0].test_arrow}}"><div class="arrow_box_perc">{{jv.metrics[0].test}}</div><div class="arrow_box_label">Test</div></div>                     
+                        <div class="arrow_box pc_icon_arrow_{{jv.metrics[0].maintainability_arrow}}"><div class="arrow_box_perc">{{jv.metrics[0].maintainability}}</div><div class="arrow_box_label">Maintainability</div></div>                     
+                        <div class="arrow_box pc_icon_arrow_{{jv.metrics[0].security_arrow}}"><div class="arrow_box_perc">{{jv.metrics[0].security}}</div><div class="arrow_box_label">Security</div></div>                     
+                        <div class="arrow_box pc_icon_arrow_{{jv.metrics[0].workmanship_arrow}}"><div class="arrow_box_perc">{{jv.metrics[0].workmanship}}</div><div class="arrow_box_label">Workmanship</div></div>                     
+                    </div>
+                </div>
+                <div class="item_box item_build_box {{ getcssClass(jv.build[0].state)}}" onclick="open_details();">
+                    <div class="item_label_box">Build</div>
+                    <div class="build_cont">
+                        <div class="debug pc_icon"><div class="title">Debug</div></div>
+                        <div class="release pc_icon"><div class="title">Release</div></div>
+                    </div>
+                    <div class="box_date">{{jv.build[0].date}}</div>
+                </div>
+                <div class="item_box item_unit_test_box {{ getcssClass(jv.unit_test[0].state)}}" onclick="open_details();">
+                    <div class="item_label_box">Unit Test</div>
+                    <div class="box_chart"><div  data-ac-chart="'pie'" id="unit_test_{{jv.id}}" data-ac-data="Fchart.unit_test" data-ac-config="config" class="chart"></div></div>
+                    <div class="perc_num">{{jv.unit_test[0].percentage}}% <br> <span class="test_result">{{jv.unit_test[0].result}}</span></div> 
+                    <div class="perc_ber"><div class="green_bar" style="width: {{jv.unit_test[0].code_covered}}%;"></div><div class="text_bars">{{jv.unit_test[0].code_covered}}% <br> code covered</div> </div> 
+                </div>
+                <div class="item_box item_functional_test_box {{ getcssClass(jv.functional_test[0].state)}}" onclick="open_details();">
+                    <div class="item_label_box">Functional Test</div>
+                    <div  data-ac-chart="'pie'" id="functional_test_{{jv.id}}" data-ac-data="Fchart.functional_test" data-ac-config="config" class="chart"></div>
+                    <div class="perc_num">{{jv.functional_test[0].percentage}}% <br> <span class="test_result">{{jv.functional_test[0].result}}</span></div> 
+                    <div class="perc_ber"><div class="green_bar" style="width: {{jv.functional_test[0].code_covered}}%;"></div><div class="text_bars">{{jv.functional_test[0].code_covered}}% <br> code covered</div> </div> 
+                </div>
+                <div class="item_result">Result:
+                    <br>
+
+                    <span class="msg {{getTextColor(jv.state)}}">
+                        <span class="main_result">{{ jv.main_result}}</span>
+                        <br>
+                        {{ jv.resultMsg}}
+                    </span>
+                    <br><br>
+                    <button class="btn btn_general" ng-if="jv.state == 'Accepted'"><i class="fontawesome-search icon-side inverted"></i>Merged Build</button>
+                    <button class="btn btn_general" ng-if="jv.state == 'Rejected'"><i class="fontawesome-search icon-side inverted"></i>Find Issue</button>
+                    <div ng-if="jv.state == 'Complete'">
+                        <button class="btn btn_general" ><i class="fontawesome-search icon-side inverted"></i>Deploy</button> to: 
+                        <select class="select_option">
+                            <option>Production</option>
+                            <option>Test Server</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>
+
+<br>
+<br>
+<footer>Developed By: <b><i>{{ appSettings.powered_by}}</i></b> at {{ appSettings.date}}</footer>
+<nvd3 options="config" data="Fchart"></nvd3>

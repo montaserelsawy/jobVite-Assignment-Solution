@@ -1,0 +1,267 @@
+[
+    {
+        "id": "1",
+        "type": "Build",
+        "label": "Tenrox - R1_1235",
+        "owner": "",
+        "time_started": "",
+        "state": "Pending",
+        "metrics": [{
+                "percentage": "0",
+                "state": "Pending",
+                "test": "",
+                "test_arrow": "",
+                "maintainability": "",
+                "maintainability_arrow": "",
+                "security": "",
+                "security_arrow": "",
+                "workmanship": "",
+                "workmanship_arrow": ""
+            }],
+        "build": [{
+                "percentage": "0",
+                "state": "Pending",
+                "date": ""
+            }],
+        "unit_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "",
+                "result": "",
+                "point1": "",
+                "point2": ""
+            }],
+        "functional_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "",
+                "result": "",
+                "point1": "",
+                "point2": ""
+            }],
+        "open": false,
+        "resultMsg": "",
+        "main_result": ""
+    },
+    {
+        "id": "2",
+        "type": "Firewall",
+        "label": "432462",
+        "owner": "jtuck",
+        "time_started": "4/18/2014 12:12pm",
+        "state": "Running",
+        "metrics": [{
+                "percentage": "60",
+                "state": "Running",
+                "test": "50",
+                "test_arrow": "up",
+                "maintainability": "30",
+                "maintainability_arrow": "down",
+                "security": "65",
+                "security_arrow": "right",
+                "workmanship": "80",
+                "workmanship_arrow": "right"
+            }],
+        "build": [{
+                "percentage": "20",
+                "state": "Running",
+                "date": "5/18/2014 09:00am"
+            }],
+        "unit_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "76",
+                "result": "test running",
+                "point1": "1233",
+                "point2": "987"
+            }],
+        "functional_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "23",
+                "result": "tests passed",
+                "point1": "123",
+                "point2": "40"
+            }],
+        "open": false,
+        "resultMsg": "Is Running",
+        "main_result": ""
+    },
+    {
+        "id": "3",
+        "type": "Firewall",
+        "label": "432461",
+        "owner": "samy",
+        "time_started": "4/18/2014 10:53am",
+        "state": "Rejected",
+        "metrics": [{
+                "percentage": "100",
+                "state": "Rejected",
+                "test": "64",
+                "test_arrow": "up",
+                "maintainability": "53",
+                "maintainability_arrow": "down",
+                "security": "64",
+                "security_arrow": "right",
+                "workmanship": "72",
+                "workmanship_arrow": "right"
+            }],
+        "build": [{
+                "percentage": "100",
+                "state": "Accepted",
+                "date": "12/19/2014 06:46am"
+            }],
+        "unit_test": [{
+                "percentage": "80",
+                "state": "Accepted",
+                "code_covered": "66",
+                "result": "tests passed",
+                "point1": "1233",
+                "point2": "987"
+            }],
+        "functional_test": [{
+                "percentage": "60",
+                "state": "Accepted",
+                "code_covered": "84",
+                "result": "tests passed",
+                "point1": "123",
+                "point2": "40"
+            }],
+        "open": false,
+        "resultMsg": "Metrics Reduction",
+        "main_result": "Change Rejected"
+    },
+    {
+        "id": "4",
+        "type": "Build",
+        "label": "Tenrox - R1_1234",
+        "owner": "",
+        "time_started": "4/17/2014 9:42am",
+        "state": "Complete",
+        "metrics": [{
+                "percentage": "100",
+                "state": "Complete",
+                "test": "80",
+                "test_arrow": "up",
+                "maintainability": "55",
+                "maintainability_arrow": "up",
+                "security": "61",
+                "security_arrow": "right",
+                "workmanship": "72",
+                "workmanship_arrow": "right"
+            }],
+        "build": [{
+                "percentage": "100",
+                "state": "Complete",
+                "date": "1/12/2014 04:06am"
+            }],
+        "unit_test": [{
+                "percentage": "70",
+                "state": "Complete",
+                "code_covered": "96",
+                "result": "tests passed",
+                "point1": "1000",
+                "point2": "500"
+            }],
+        "functional_test": [{
+                "percentage": "20",
+                "state": "Complete",
+                "code_covered": "54",
+                "result": "tests passed",
+                "point1": "150",
+                "point2": "80"
+            }],
+        "open": false,
+        "resultMsg": "Complete",
+        "main_result": ""
+    },
+    {
+        "id": "5",
+        "type": "Firewall",
+        "label": "432460",
+        "owner": "samy",
+        "time_started": "4/17/2014 7:51am",
+        "state": "Rejected",
+        "metrics": [{
+                "percentage": "100",
+                "state": "Rejected",
+                "test": "64",
+                "test_arrow": "up",
+                "maintainability": "53",
+                "maintainability_arrow": "down",
+                "security": "64",
+                "security_arrow": "right",
+                "workmanship": "72",
+                "workmanship_arrow": "right"
+            }],
+        "build": [{
+                "percentage": "0",
+                "state": "Pending",
+                "date": "2/11/2014 09:46am"
+            }],
+        "unit_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "76",
+                "result": "test running",
+                "point1": "1233",
+                "point2": "987"
+            }],
+        "functional_test": [{
+                "percentage": "0",
+                "state": "Pending",
+                "code_covered": "23",
+                "result": "tests passed",
+                "point1": "123",
+                "point2": "40"
+            }],
+        "open": false,
+        "resultMsg": "Metrics Reduction",
+        "main_result": "Change Rejected"
+    },
+    {
+        "id": "6",
+        "type": "Firewall",
+        "label": "432459",
+        "owner": "samy",
+        "time_started": "4/16/2014 6:43am",
+        "state": "Accepted",
+        "metrics": [{
+                "percentage": "100",
+                "state": "Accepted",
+                "test": "80",
+                "test_arrow": "up",
+                "maintainability": "55",
+                "maintainability_arrow": "up",
+                "security": "61",
+                "security_arrow": "right",
+                "workmanship": "72",
+                "workmanship_arrow": "right"
+            }],
+        "build": [{
+                "percentage": "0",
+                "state": "Accepted",
+                "date": "3/10/2014 03:26am"
+            }],
+        "unit_test": [{
+                "percentage": "85",
+                "state": "Accepted",
+                "code_covered": "96",
+                "result": "tests passed",
+                "point1": "1000",
+                "point2": "500"
+            }],
+        "functional_test": [{
+                "percentage": "75",
+                "state": "Accepted",
+                "code_covered": "54",
+                "result": "tests passed",
+                "point1": "150",
+                "point2": "80"
+            }],
+        "open": false,
+        "resultMsg": "Auto - Merged",
+        "main_result": "Change Accepted"
+    }
+
+]
